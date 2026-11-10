@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meros Uyqu</title>
+  <meta name="description" content="Noodatiy, esda qoladigan va premium yostiqlar internet-do'koni.">
+  <meta name="theme-color" content="#161933">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Meros Uyqu">
+  <meta property="og:locale" content="uz_UZ">
+  <meta property="og:title" content="Meros Uyqu — Onlayn do'kon">
+  <meta property="og:description" content="Noodatiy, esda qoladigan va premium yostiqlar internet-do'koni.">
+  <meta property="og:url" content="https://USERNAME.github.io/REPO/">
+  <meta property="og:image" content="https://USERNAME.github.io/REPO/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Meros Uyqu rasm">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Meros Uyqu — Onlayn do'kon">
+  <meta name="twitter:description" content="Noodatiy, esda qoladigan va premium yostiqlar internet-do'koni.">
+  <meta name="twitter:image" content="https://USERNAME.github.io/REPO/og-image.png">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="imgs/favicon.png">
+</head>
+<body>
+  <!-- <div id="loading-screen" class="loading-screen">
+    <div class="loading-content">
+      <div class="loading-pillow-box">
+        <div class="loading-pillow"></div>
+        <div class="loading-moon-icon"><i class="fa-solid fa-moon"></i></div>
+        <div class="loading-zzz">Zzz</div>
+      </div>
+      <div class="loading-title">Meros Uyqu</div>
+      <div class="loading-bar-track">
+        <div id="loading-progress" class="loading-bar-fill"></div>
+      </div>
+      <div class="loading-status">
+        <span id="loading-percent">0%</span>
+        <span><i class="fa-solid fa-spinner fa-spin"></i> Yuklanmoqda...</span>
+      </div>
+    </div>
+  </div> -->
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <i class="fa-solid fa-cloud-moon"></i>
+        <span>Meros Uyqu</span>
+      </a>
+      <nav class="desktop-nav">
+        <a href="#store">Do'kon</a>
+        <a href="#popular">Mashhur</a>
+        <a href="#quiz">Moslash</a>
+        <a href="#contact">Aloqa</a>
+      </nav>
+      <div class="header-actions">
+        <button id="search-toggle-btn" class="header-icon-btn" aria-label="Qidiruv"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <button id="cart-toggle-btn" class="header-icon-btn cart-btn" aria-label="Savatcha">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span id="cart-badge" class="cart-badge">0</span>
+        </button>
+        <button id="burger-btn" class="header-icon-btn burger-btn" aria-label="Menyu"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="mobile-menu">
+      <a href="#store" class="mobile-link">Do'kon</a>
+      <a href="#popular" class="mobile-link">Mashhur</a>
+      <a href="#quiz" class="mobile-link">Moslash</a>
+      <a href="#process" class="mobile-link">Tayyorlanish</a>
+      <a href="#history" class="mobile-link">Tarix</a>
+      <a href="#delivery" class="mobile-link">Yetkazish</a>
+      <a href="#why" class="mobile-link">Afzalliklar</a>
+      <a href="#reviews" class="mobile-link">Fikrlar</a>
+      <a href="#promo" class="mobile-link">11.11</a>
+      <a href="#contact" class="mobile-link">Aloqa</a>
+    </div>
+  </header>
+
+  <div id="search-modal" class="search-modal-overlay">
+    <div class="search-modal-card">
+      <div class="search-input-wrap">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="live-search-input" placeholder="Yostiq nomini qidiring...">
+        <button id="search-close-btn" class="search-close-btn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div id="search-results-container" class="search-results-container"></div>
+    </div>
+  </div>
+
+  <div id="cart-sidebar" class="cart-sidebar">
+    <div class="cart-header">
+      <h3>Savatcha</h3>
+      <button id="cart-close-btn" class="cart-close-btn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div id="cart-items-list" class="cart-items-list"></div>
+    <div class="cart-footer">
+      <div class="cart-total-row">
+        <span>Umumiy narx:</span>
+        <span id="cart-total-price">0 so'm</span>
+      </div>
+      <button id="checkout-btn" class="gradient-btn checkout-btn">
+        <span class="btn-text">Buyurtma berish</span>
+        <span class="btn-spinner" style="display: none;"><i class="fa-solid fa-spinner fa-spin"></i></span>
+      </button>
+    </div>
+  </div>
+
+  <div id="detail-modal" class="detail-modal-overlay">
+    <div class="detail-modal-card">
+      <button id="detail-close-btn" class="detail-close-btn"><i class="fa-solid fa-xmark"></i></button>
+      <div class="detail-content-grid">
+        <div id="detail-image-box" class="detail-image-box"></div>
+        <div class="detail-info-box">
+          <span id="detail-type" class="detail-pill"></span>
+          <h2 id="detail-name"></h2>
+          <p id="detail-desc" class="detail-desc"></p>
+          <div class="detail-meta-row">
+            <div><strong>Material:</strong> <span id="detail-material"></span></div>
+            <div><strong>Rang:</strong> <span id="detail-color"></span></div>
+            <div><strong>Reyting:</strong> <span id="detail-rating"></span></div>
+          </div>
+          <div class="detail-price-row">
+            <span id="detail-price" class="detail-price"></span>
+            <button id="detail-add-btn" class="gradient-btn">Savatchaga qo'shish</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="promo-rules-modal" class="detail-modal-overlay">
+    <div class="detail-modal-card promo-rules-card">
+      <button id="promo-rules-close-btn" class="detail-close-btn"><i class="fa-solid fa-xmark"></i></button>
+      <h2>Aksiya shartlari</h2>
+      <ul class="promo-rules-list">
+        <li>Aksiya faqat 11-noyabr kuni amal qiladi.</li>
+        <li>200 000 so'mlik xarid uchun amal qiladi.</li>
+        <li>Mahsulotlar soni cheklangan.</li>
+        <li>Har bir mijozga bitta buyurtma.</li>
+      </ul>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero-section">
+      <div class="hero-glow-moon"></div>
+      <div class="hero-zzz-box"><span>Zzz</span></div>
+      <div class="hero-grid container">
+        <div class="hero-text-col">
+          <span class="pill-badge">Noodatiy va Premium</span>
+          <h1 class="hero-title">Chuqur <span class="gradient-text">Uyqu</span> va <span class="outline-text">Bulutdek</span> Yostiqlar</h1>
+          <p class="hero-subtitle">Har bir kechangizni ertakga aylantiradigan mukammal anatomik qo'llab-quvvatlash va yumshoqlik olami.</p>
+          <div class="hero-buttons">
+            <a href="#store" class="gradient-btn">Xarid qilish</a>
+            <a href="#quiz" class="glass-btn">Batafsil</a>
+          </div>
+          <div class="hero-indicators">
+            <div class="hero-ind-card">
+              <i class="fa-solid fa-layer-group"></i>
+              <div><strong>70 model</strong><span>Noyob turlar</span></div>
+            </div>
+            <div class="hero-ind-card">
+              <i class="fa-solid fa-truck-fast"></i>
+              <div><strong>Bepul yetkazish</strong><span>Tezkor xizmat</span></div>
+            </div>
+            <div class="hero-ind-card">
+              <i class="fa-solid fa-shield-halved"></i>
+              <div><strong>30 kun sinov</strong><span>Kafolatlangan</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-image-col">
+          <div id="hero-img-wrapper" class="hero-image-wrapper"></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee-section">
+      <div class="marquee-track">
+        <span>Yumshoq yostiqlar · Chuqur uyqu · Bulutdek yumshoqlik · Shirin tushlar ·</span>
+        <span>Yumshoq yostiqlar · Chuqur uyqu · Bulutdek yumshoqlik · Shirin tushlar ·</span>
+      </div>
+    </div>
+
+    <section id="store" class="store-section container">
+      <div class="section-header">
+        <span class="pill-badge">Katalog</span>
+        <h2>Yostiq Do'koni</h2>
+        <p>Barcha ehtiyojingizga mos keluvchi 70 xil noyob turdagi yostiqlar to'plami</p>
+      </div>
+      <div class="filter-panel glass-panel">
+        <div class="filter-group">
+          <label>Tur:</label>
+          <select id="filter-type">
+            <option value="all">Barchasi (70)</option>
+            <option value="Patli yostiq">Patli yostiq</option>
+            <option value="Memory foam yostiq">Memory foam yostiq</option>
+            <option value="Ortopedik yostiq">Ortopedik yostiq</option>
+            <option value="Mikrofibra yostiq">Mikrofibra yostiq</option>
+            <option value="Bolalar va bo'yin yostig'i">Bolalar va bo'yin yostig'i</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Rang:</label>
+          <select id="filter-color">
+            <option value="all">Barcha ranglar</option>
+            <option value="Qaymoq">Qaymoq</option>
+            <option value="Oq">Oq</option>
+            <option value="Lavanda">Lavanda</option>
+            <option value="Pushti">Pushti</option>
+            <option value="Ko'k">Ko'k</option>
+            <option value="Kulrang">Kulrang</option>
+            <option value="Shaftoli">Shaftoli</option>
+            <option value="Yashil">Yashil</option>
+            <option value="Qum rang">Qum rang</option>
+            <option value="Atirgul">Atirgul</option>
+            <option value="Havorang">Havorang</option>
+            <option value="Siren">Siren</option>
+            <option value="Sariq">Sariq</option>
+            <option value="Zaytun">Zaytun</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Saralash:</label>
+          <select id="filter-sort">
+            <option value="popular">Mashhurligi bo'yicha</option>
+            <option value="cheap">Arzonroq</option>
+            <option value="expensive">Qimmatroq</option>
+          </select>
+        </div>
+      </div>
+      <div id="products-grid" class="products-grid"></div>
+      <div id="load-more-container" class="load-more-container">
+        <button id="load-more-btn" class="glass-btn">Yana 10 ta ko'rsatish</button>
+      </div>
+    </section>
+
+    <section id="popular" class="popular-section container">
+      <div class="section-header">
+        <span class="pill-badge">Tanlangan</span>
+        <h2>Mashhur Yostiqlar</h2>
+        <p>Mijozlarimiz eng ko'p tanlagan va sevikli 6 ta maxsus model</p>
+      </div>
+      <div id="popular-grid" class="popular-grid"></div>
+    </section>
+
+    <section id="quiz" class="quiz-section container">
+      <div class="section-header">
+        <span class="pill-badge">Test</span>
+        <h2>Qaysi yostiq sizga mos?</h2>
+        <p>Uxlaydigan pozitsiyangizni tanlang va o'zingizga mos mukammal yostiqni toping</p>
+      </div>
+      <div class="quiz-cards-grid">
+        <button class="quiz-pill-card" onclick="chooseSleep('side')">
+          <div class="quiz-icon-glow"><i class="fa-solid fa-moon"></i></div>
+          <div class="quiz-title">Yonboshlab uxlayman</div>
+          <div class="quiz-desc">Yelka va bo'yin uchun balandroq yostiq</div>
+        </button>
+        <button class="quiz-pill-card" onclick="chooseSleep('back')">
+          <div class="quiz-icon-glow"><i class="fa-solid fa-cloud"></i></div>
+          <div class="quiz-title">Chalqancha uxlayman</div>
+          <div class="quiz-desc">O'rtacha balandlikdagi yumshoq yostiq</div>
+        </button>
+        <button class="quiz-pill-card" onclick="chooseSleep('stomach')">
+          <div class="quiz-icon-glow"><i class="fa-solid fa-bed"></i></div>
+          <div class="quiz-title">Qorinda uxlayman</div>
+          <div class="quiz-desc">Past va yassi yostiq</div>
+        </button>
+      </div>
+      <div id="quiz-result-box" class="quiz-result-box glass-panel" style="display: none;">
+        <h3 id="quiz-result-title"></h3>
+        <p id="quiz-result-text"></p>
+        <button id="quiz-result-btn" class="gradient-btn">Shu turdagi yostiqlarni ko'rish</button>
+      </div>
+    </section>
+
+    <section id="process" class="process-section container">
+      <div class="section-header">
+        <span class="pill-badge">Jarayon</span>
+        <h2>Yostiq qanday tayyorlanadi</h2>
+        <p>Har bir yostiqning mukammallikka erishish bosqichlari</p>
+      </div>
+      <div class="process-screen-grid">
+        <div class="process-left-panel glass-panel">
+          <div id="process-img-box" class="process-image-box"></div>
+          <div class="process-info-wrap">
+            <span id="process-step-num" class="process-num">01 / 10</span>
+            <h3 id="process-title"></h3>
+            <p id="process-desc"></p>
+          </div>
+        </div>
+        <div id="process-buttons-list" class="process-buttons-list"></div>
+      </div>
+    </section>
+
+    <section id="history" class="history-section container">
+      <div class="section-header">
+        <span class="pill-badge">O'tmish</span>
+        <h2>Yostiqlar tarixi</h2>
+        <p>Insoniyatning ming yillik uyqu madaniyati haqidagi qiziqarli haqiqatlar</p>
+      </div>
+      <div id="timeline-container" class="timeline-container"></div>
+    </section>
+
+    <section id="delivery" class="delivery-section container">
+      <div class="section-header">
+        <span class="pill-badge">Logistika</span>
+        <h2>Yetkazib berish jarayoni</h2>
+        <p>Buyurtmangiz eshigingizgacha yetib borishining xavfsiz yo'li</p>
+      </div>
+      <div class="delivery-layout-grid">
+        <div class="delivery-steps-col">
+          <div class="delivery-zigzag-item">
+            <div class="delivery-step-icon"><i class="fa-solid fa-circle-check"></i></div>
+            <div class="delivery-step-content glass-panel">
+              <h4>1. Buyurtma qabul qilindi</h4>
+              <p>Sizning buyurtmangiz tizimda ro'yxatga olindi va tasdiqlandi.</p>
+            </div>
+          </div>
+          <div class="delivery-arc-connector"></div>
+          <div class="delivery-zigzag-item right-align">
+            <div class="delivery-step-icon"><i class="fa-solid fa-box-open"></i></div>
+            <div class="delivery-step-content glass-panel">
+              <h4>2. Buyurtma tayyorlanmoqda</h4>
+              <p>Maxsus sexda tanlangan yostiq qadoqlashga hozirlanmoqda.</p>
+            </div>
+          </div>
+          <div class="delivery-arc-connector"></div>
+          <div class="delivery-zigzag-item">
+            <div class="delivery-step-icon"><i class="fa-solid fa-user-check"></i></div>
+            <div class="delivery-step-content glass-panel">
+              <h4>3. Kuryerga topshirildi</h4>
+              <p>Professional kuryer xizmati buyurtmani qabul qilib oldi.</p>
+            </div>
+          </div>
+          <div class="delivery-arc-connector"></div>
+          <div class="delivery-zigzag-item right-align">
+            <div class="delivery-step-icon"><i class="fa-solid fa-truck-fast"></i></div>
+            <div class="delivery-step-content glass-panel">
+              <h4>4. Manzilga yetkazilmoqda</h4>
+              <p>Kuryer ko'rsatilgan manzil tomon harakatlanmoqda.</p>
+            </div>
+          </div>
+          <div class="delivery-arc-connector"></div>
+          <div class="delivery-zigzag-item">
+            <div class="delivery-step-icon"><i class="fa-solid fa-house-circle-check"></i></div>
+            <div class="delivery-step-content glass-panel">
+              <h4>5. Buyurtma topshirildi</h4>
+              <p>Siz buyurtmani qabul qilib oldingiz va shirin tushlar olamiga tayyorsiz.</p>
+            </div>
+          </div>
+        </div>
+        <div class="delivery-image-col">
+          <div id="delivery-img-wrapper" class="delivery-image-wrapper"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why" class="why-section container">
+      <div class="section-header">
+        <span class="pill-badge">Afzalliklar</span>
+        <h2>Nima uchun biz?</h2>
+        <p>Sifat, qulaylik va ishonchlilik uyg'unlashgan noyob xususiyatlar</p>
+      </div>
+      <div class="bento-grid">
+        <div class="bento-card bento-large">
+          <div class="bento-pillow-shape"></div>
+          <h3>Yuqori sifatli materiallar</h3>
+          <p>Uyqu vaqti sog'ligingizni kafolatlaydigan eng sara xom ashyolardan foydalanamiz.</p>
+          <div class="bento-chips-row">
+            <span class="bento-chip">Tabiiy pat</span>
+            <span class="bento-chip">Memory foam</span>
+            <span class="bento-chip">Gipoallergen mato</span>
+          </div>
+          <div class="bento-big-num">100%</div>
+          <span class="bento-num-label">tabiiy va xavfsiz material</span>
+        </div>
+        <div class="bento-card">
+          <div class="bento-icon"><i class="fa-solid fa-tags"></i></div>
+          <h3>Qulay narxlar</h3>
+          <p>O'rtacha narx va yuqori premium darajadagi uyg'unlik.</p>
+        </div>
+        <div class="bento-card">
+          <div class="bento-icon"><i class="fa-solid fa-bolt"></i></div>
+          <h3>Tezkor yetkazish</h3>
+          <p>O'zbekiston bo'ylab eng qisqa muddatda yetkazamiz.</p>
+        </div>
+        <div class="bento-card">
+          <div class="bento-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>Xavfsiz xarid</h3>
+          <p>Ishonchli to'lov va kafolatlangan xizmat ko'rsatish.</p>
+        </div>
+        <div class="bento-card">
+          <div class="bento-icon"><i class="fa-solid fa-moon"></i></div>
+          <h3>30 kunlik sinov</h3>
+          <p>Yoqmasa pulni qaytaramiz, hech qanday savollarsiz.</p>
+        </div>
+        <div class="bento-card bento-wide">
+          <div class="stats-row-inner">
+            <div class="stat-box">
+              <div class="stat-num">10 000+</div>
+              <div class="stat-label">Mamnun mijoz</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-box">
+              <div class="stat-num">70</div>
+              <div class="stat-label">Yostiq modeli</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-box">
+              <div class="stat-num">24 soat</div>
+              <div class="stat-label">Yetkazish</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews" class="reviews-section container">
+      <div class="section-header">
+        <span class="pill-badge">Fikrlar</span>
+        <h2>Mijozlar Fikri</h2>
+        <p>Bizning yostiqlarimizda uxlayotgan minglab insonlarning samimiy so'zlari</p>
+      </div>
+      <div class="reviews-slider-wrap">
+        <div id="reviews-track" class="reviews-track"></div>
+      </div>
+    </section>
+
+    <section id="promo" class="promo-banner-section container">
+      <div class="promo-banner-card">
+        <div class="promo-content-grid">
+          <div class="promo-left-col">
+            <span class="pill-badge"><i class="fa-solid fa-bolt"></i> Cheklangan taklif</span>
+            <div class="promo-mega-title-wrap">
+              <h2 class="promo-mega-title">11.11</h2>
+              <span class="promo-sub-badge">KATTA AKSIYA</span>
+            </div>
+            <p class="promo-offer-text">200 000 so'mlik xaridlar <span class="gradient-text big-price">faqat 5 000 so'm!</span></p>
+            <p class="promo-date-text">11-noyabr kuni. Faqat bir kun!</p>
+            <div class="promo-chips-grid">
+              <div class="promo-mini-chip"><i class="fa-solid fa-truck-fast"></i> Bepul yetkazib berish</div>
+              <div class="promo-mini-chip"><i class="fa-solid fa-gift"></i> Sovg'a sifatida yostiqcha</div>
+              <div class="promo-mini-chip"><i class="fa-solid fa-moon"></i> 30 kunlik sinov</div>
+            </div>
+            <div class="promo-buttons-row">
+              <button class="gradient-btn" onclick="clickPromoAction()">Aksiyada qatnashish</button>
+              <button class="glass-btn" onclick="openPromoRules()">Shartlar</button>
+            </div>
+          </div>
+          <div class="promo-right-col">
+            <div class="countdown-title-wrap">
+              <span>Aksiyagacha qoldi:</span>
+            </div>
+            <div class="countdown-boxes-grid">
+              <div class="countdown-box glass-panel">
+                <span id="cd-days" class="cd-num">00</span>
+                <span class="cd-label">Kun</span>
+              </div>
+              <div class="countdown-box glass-panel">
+                <span id="cd-hours" class="cd-num">00</span>
+                <span class="cd-label">Soat</span>
+              </div>
+              <div class="countdown-box glass-panel">
+                <span id="cd-mins" class="cd-num">00</span>
+                <span class="cd-label">Daqiqa</span>
+              </div>
+              <div class="countdown-box glass-panel">
+                <span id="cd-secs" class="cd-num">00</span>
+                <span class="cd-label">Soniya</span>
+              </div>
+            </div>
+            <div class="promo-progress-wrap">
+              <div class="promo-progress-labels">
+                <span>Qolgan miqdor</span>
+                <span>72%</span>
+              </div>
+              <div class="promo-progress-track">
+                <div class="promo-progress-fill"></div>
+              </div>
+              <span class="promo-stock-warn"><i class="fa-solid fa-bolt"></i> Mahsulotlar tez tugayapti!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section container">
+      <div class="section-header">
+        <span class="pill-badge">Aloqa</span>
+        <h2>Savollar va Bog'lanish</h2>
+        <p>Biz bilan bog'laning yoki eng ko'p beriladigan savollarga javob oling</p>
+      </div>
+      <div class="contact-grid-layout">
+        <div class="faq-accordion-col">
+          <div class="faq-item glass-panel">
+            <button class="faq-question-btn" onclick="toggleFaq(this)">
+              <span>Yostiqni qanday tanlash mumkin?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer-wrap">
+              <p>Uxlaydigan pozitsiyangizga qarab (yonbosh, chalqancha yoki qorin) bizning maxsus testimiz orqali osongina tanlashingiz mumkin.</p>
+            </div>
+          </div>
+          <div class="faq-item glass-panel">
+            <button class="faq-question-btn" onclick="toggleFaq(this)">
+              <span>Yetkazib berish qancha vaqt oladi?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer-wrap">
+              <p>Toshkent shahri bo'ylab 24 soat ichida, viloyatlarga esa 2-3 ish kuni davomida yetkazib beramiz.</p>
+            </div>
+          </div>
+          <div class="faq-item glass-panel">
+            <button class="faq-question-btn" onclick="toggleFaq(this)">
+              <span>Yostiqni qaytarish mumkinmi?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer-wrap">
+              <p>Ha, 30 kunlik sinov davomida agar sizga yoqmasa, hech qanday muammosiz almashtirib yoki qaytarib berishingiz mumkin.</p>
+            </div>
+          </div>
+          <div class="faq-item glass-panel">
+            <button class="faq-question-btn" onclick="toggleFaq(this)">
+              <span>Yostiqlarni qanday yuvish kerak?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer-wrap">
+              <p>Har bir yostiq bilan birga keluvchi maxsus qo'llanmada nozik rejimda 30 darajada yuvish tavsiya etiladi.</p>
+            </div>
+          </div>
+          <div class="faq-item glass-panel">
+            <button class="faq-question-btn" onclick="toggleFaq(this)">
+              <span>To'lov qanday amalga oshiriladi?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer-wrap">
+              <p>Buyurtmani qabul qilib olgandan keyin naqd pulda yoki kuryerga karta orqali to'lashingiz mumkin.</p>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form-col glass-panel">
+          <h3>Yangiliklarga obuna bo'lish</h3>
+          <p>Chegirmalar va yangi modellar haqida birinchilardan bo'lib xabardor bo'ling.</p>
+          <form id="newsletter-form" onsubmit="subscribeNewsletter(event)">
+            <div class="form-group">
+              <input type="email" id="newsletter-email" placeholder="Elektron pochtangiz..." required>
+            </div>
+            <button type="submit" class="gradient-btn w-100">Obuna bo'lish</button>
+          </form>
+          <div class="contact-info-boxes">
+            <div class="contact-info-item"><i class="fa-solid fa-phone"></i> +998 71 200 11 22</div>
+            <div class="contact-info-item"><i class="fa-solid fa-envelope"></i> salom@merosuyqu.uz</div>
+            <div class="contact-info-item"><i class="fa-solid fa-location-dot"></i> Toshkent shahri, Amir Temur ko'chasi 45</div>
+          </div>
+          <div class="social-links-row">
+            <a href="#" class="social-icon-btn"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-icon-btn"><i class="fa-brands fa-telegram"></i></a>
+            <a href="#" class="social-icon-btn"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="social-icon-btn"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="site-footer">
+    <div class="footer-inner container">
+      <div class="footer-col">
+        <a href="#" class="logo">
+          <i class="fa-solid fa-cloud-moon"></i>
+          <span>Meros Uyqu</span>
+        </a>
+        <p>Hozirgi zamonaviy texnologiyalar va qadimiy uyqu madaniyati uyg'unligi.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigatsiya</h4>
+        <a href="#store">Do'kon</a>
+        <a href="#popular">Mashhur</a>
+        <a href="#quiz">Moslash</a>
+        <a href="#process">Tayyorlanish</a>
+      </div>
+      <div class="footer-col">
+        <h4>Yordam</h4>
+        <a href="#delivery">Yetkazish</a>
+        <a href="#why">Afzalliklar</a>
+        <a href="#reviews">Fikrlar</a>
+        <a href="#contact">Aloqa</a>
+      </div>
+      <div class="footer-col">
+        <h4>Ish vaqti</h4>
+        <p>Har kuni: 09:00 - 21:00</p>
+        <p>Dam olish kunisiz</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Meros Uyqu. Barcha huquqlar himoyalangan.</p>
+    </div>
+  </footer>
+
+  <div id="notifications-container" class="notifications-container"></div>
+
+  <script src="main.js"></script>
+</body>
+</html>
